@@ -1,0 +1,61 @@
+@pi = http://127.0.0.1:8081/api
+@aula = http://127.0.0.1:8080
+
+### Consultar o PI
+GET {{pi}}/atendidos
+
+### Responsável e atendidos vinculados
+GET {{pi}}/responsaveis/1/atendidos
+
+### Criar atendido com responsável existente
+POST {{pi}}/atendidos
+Content-Type: application/json
+
+{"nome":"Duda Demo","dataNascimento":"2017-05-20","responsavelId":1}
+
+### Criar ficha (ajuste o ID ao resultado anterior)
+POST {{pi}}/fichas-socioeconomicas
+Content-Type: application/json
+
+{"atendidoId":4,"rendaFamiliar":1200.00,"pessoasNoDomicilio":3}
+
+### Consultar o relacionamento (ajuste o ID)
+GET {{pi}}/atendidos/4/ficha-socioeconomica
+
+### Repetir a criação da ficha acima para obter 409
+
+### Tentar criar ficha com quantidade de moradores inválida
+POST {{pi}}/fichas-socioeconomicas
+Content-Type: application/json
+
+{"atendidoId":4,"rendaFamiliar":1200.00,"pessoasNoDomicilio":0}
+
+### Aula: aluno e perfil no mesmo JSON
+GET {{aula}}/alunos/1
+
+### Aula: cursos de um instrutor
+GET {{aula}}/instrutores/1/cursos
+
+### Aula: matricular aluno 1 no curso 3
+POST {{aula}}/alunos/1/cursos/3
+
+### Aula: conferir a matrícula
+GET {{aula}}/alunos/1/cursos
+
+### Exercício: criar categoria
+POST {{aula}}/categorias
+Content-Type: application/json
+
+{"nome":"Backend"}
+
+### Exercício: listar e consultar a nova categoria por ID
+GET {{aula}}/categorias
+
+###
+GET {{aula}}/categorias/2
+
+### Exercício: associar ao curso 1 (ajuste o ID da categoria)
+PUT {{aula}}/cursos/1/categoria/2
+
+### Exercício: conferir vínculo no curso
+GET {{aula}}/cursos/1
