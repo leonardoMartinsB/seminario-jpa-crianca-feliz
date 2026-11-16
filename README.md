@@ -102,6 +102,6 @@ A resposta `201` inclui `atendido: {"id":4,"nome":"Duda Demo"}` e `rendaPorPesso
 - [Roteiro](demo/ROTEIRO.md) com divisão de fala e operações dos dois projetos.
 - [Requisições HTTP](demo/requests.http) para IntelliJ, VS Code REST Client ou tradução direta para Postman/Insomnia.
 - `pwsh -File ./demo/demonstrar.ps1` executa o CRUD das três entidades, valida os vínculos e verifica respostas de erro.
-- [Exercício Categoria e Curso](https://github.com/leonardoMartinsB/seminario-jpa-crianca-feliz/blob/codex/exercicio-categoria-curso/EXERCICIO.md) na branch dedicada ao projeto didático do professor.
+- [Exercício Categoria e Curso](https://github.com/leonardoMartinsB/seminario-jpa-crianca-feliz/blob/exercicio-categoria-curso/EXERCICIO.md) na branch dedicada ao projeto didático do professor.
 
 Aula e enunciado: [Aula 01](https://glaucotodesco.notion.site/Aula-01-Relacionamentos-JPA-3fe5d52a81f58098b8a3ee702e13ad96) e [Projeto final](https://glaucotodesco.notion.site/Projeto-Final-Semin-rio-JPA-e-Projeto-Integrador-3fe5d52a81f581a296b0f262cecf8b7e).
