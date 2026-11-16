@@ -23,15 +23,18 @@ public class CursoService {
     private final CursoRepository cursoRepository;
     private final InstrutorRepository instrutorRepository;
     private final AlunoRepository alunoRepository;
+    private final CategoriaService categorias;
 
     public CursoService(
             CursoRepository cursoRepository,
             InstrutorRepository instrutorRepository,
-            AlunoRepository alunoRepository
+            AlunoRepository alunoRepository,
+            CategoriaService categorias
     ) {
         this.cursoRepository = cursoRepository;
         this.instrutorRepository = instrutorRepository;
         this.alunoRepository = alunoRepository;
+        this.categorias = categorias;
     }
 
     @Transactional
@@ -39,6 +42,7 @@ public class CursoService {
         var instrutor = buscarInstrutor(request.instrutorId());
 
         var curso = new Curso();
+        curso.setCategoria(request.categoriaId() == null ? categorias.padrao() : categorias.buscar(request.categoriaId()));
         curso.setNome(request.nome());
         curso.setCargaHoraria(request.cargaHoraria());
         curso.setInstrutor(instrutor);
@@ -63,6 +67,9 @@ public class CursoService {
     public CursoResponse atualizar(Long id, CursoRequest request) {
         var curso = buscarEntidade(id);
         var instrutor = buscarInstrutor(request.instrutorId());
+        if (request.categoriaId() != null) {
+            curso.setCategoria(categorias.buscar(request.categoriaId()));
+        }
 
         curso.setNome(request.nome());
         curso.setCargaHoraria(request.cargaHoraria());
@@ -91,6 +98,13 @@ public class CursoService {
 
         curso.setInstrutor(instrutor);
         return CursoResponse.from(cursoRepository.save(curso));
+    }
+
+    @Transactional
+    public CursoResponse trocarCategoria(Long cursoId, Long categoriaId) {
+        var curso = buscarEntidade(cursoId);
+        curso.setCategoria(categorias.buscar(categoriaId));
+        return CursoResponse.from(curso);
     }
 
     @Transactional(readOnly = true)

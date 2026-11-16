@@ -62,4 +62,9 @@ public class CursoController {
     public List<AlunoResumoResponse> listarAlunos(@PathVariable Long id) {
         return cursoService.listarAlunos(id);
     }
+
+    @PutMapping("/{id}/categoria/{categoriaId}")
+    public CursoResponse trocarCategoria(@PathVariable Long id, @PathVariable Long categoriaId) {
+        return cursoService.trocarCategoria(id, categoriaId);
+    }
 }

@@ -1,0 +1,22 @@
+@baseUrl = http://127.0.0.1:8080
+
+### Criar a categoria
+POST {{baseUrl}}/categorias
+Content-Type: application/json
+
+{"nome":"Backend"}
+
+### Listar categorias
+GET {{baseUrl}}/categorias
+
+### Buscar categoria (use o ID devolvido na criação)
+GET {{baseUrl}}/categorias/2
+
+### Associar o curso 1 à categoria criada
+PUT {{baseUrl}}/cursos/1/categoria/2
+
+### Conferir a categoria no JSON do curso
+GET {{baseUrl}}/cursos/1
+
+### Categoria inexistente (esperado: 404)
+PUT {{baseUrl}}/cursos/1/categoria/999999

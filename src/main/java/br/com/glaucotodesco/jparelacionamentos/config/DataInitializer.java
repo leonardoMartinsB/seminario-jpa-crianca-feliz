@@ -2,10 +2,12 @@ package br.com.glaucotodesco.jparelacionamentos.config;
 
 import br.com.glaucotodesco.jparelacionamentos.model.Aluno;
 import br.com.glaucotodesco.jparelacionamentos.model.Curso;
+import br.com.glaucotodesco.jparelacionamentos.model.Categoria;
 import br.com.glaucotodesco.jparelacionamentos.model.Instrutor;
 import br.com.glaucotodesco.jparelacionamentos.model.Perfil;
 import br.com.glaucotodesco.jparelacionamentos.repository.AlunoRepository;
 import br.com.glaucotodesco.jparelacionamentos.repository.CursoRepository;
+import br.com.glaucotodesco.jparelacionamentos.repository.CategoriaRepository;
 import br.com.glaucotodesco.jparelacionamentos.repository.InstrutorRepository;
 import br.com.glaucotodesco.jparelacionamentos.repository.PerfilRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -20,7 +22,8 @@ public class DataInitializer {
             PerfilRepository perfilRepository,
             InstrutorRepository instrutorRepository,
             CursoRepository cursoRepository,
-            AlunoRepository alunoRepository
+            AlunoRepository alunoRepository,
+            CategoriaRepository categoriaRepository
     ) {
         return args -> {
             var perfilAna = new Perfil();
@@ -45,17 +48,21 @@ public class DataInitializer {
             instrutorRepository.save(carlos);
             instrutorRepository.save(mariana);
 
+            var categoria = categoriaRepository.save(new Categoria("Geral"));
             var javaSpring = new Curso();
+            javaSpring.setCategoria(categoria);
             javaSpring.setNome("Java e Spring");
             javaSpring.setCargaHoraria(40);
             javaSpring.setInstrutor(carlos);
 
             var apiRest = new Curso();
+            apiRest.setCategoria(categoria);
             apiRest.setNome("APIs REST com Spring");
             apiRest.setCargaHoraria(20);
             apiRest.setInstrutor(carlos);
 
             var jpaHibernate = new Curso();
+            jpaHibernate.setCategoria(categoria);
             jpaHibernate.setNome("JPA e Hibernate");
             jpaHibernate.setCargaHoraria(24);
             jpaHibernate.setInstrutor(mariana);

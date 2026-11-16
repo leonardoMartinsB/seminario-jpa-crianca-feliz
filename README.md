@@ -89,6 +89,8 @@ A aplicação cria automaticamente dados para que os relacionamentos possam ser 
 
 ## Material da aula
 
+A extensão de Categoria e Curso está descrita em [EXERCICIO.md](EXERCICIO.md).
+
 A explicação completa, com código, banco, endpoint, JSON enviado e JSON devolvido, está em [AULA.md](AULA.md).
 
 Para testar os endpoints rapidamente no IntelliJ IDEA ou em extensões compatíveis com arquivos HTTP, use [requests.http](requests.http).
