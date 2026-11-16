@@ -2,7 +2,7 @@
 
 Leonardo Martins Brasilio e Pedro Henrique Menezes Bernardo · Grupo Criança Feliz
 
-Exercício de fixação do professor Glauco Todesco. Esta branch deriva do [projeto da aula](https://github.com/glaucotodesco/Java-Spring-JPA-Relacionamentos) no commit `8490cf7`. O [backend do Projeto Integrador](https://github.com/CriancaFeliz/sistema-crianca-feliz/tree/codex/seminario-jpa/backend-jpa) fica em uma branch própria.
+Exercício de fixação do professor Glauco Todesco. Esta branch deriva do [projeto da aula](https://github.com/glaucotodesco/Java-Spring-JPA-Relacionamentos) no commit `8490cf7`. O [backend do Projeto Integrador](https://github.com/leonardoMartinsB/seminario-jpa-crianca-feliz/tree/main) fica na branch `main` deste repositório.
 
 ## Modelagem
 
